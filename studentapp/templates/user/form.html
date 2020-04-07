@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>studentform</title>
+</head>
+<body>
+<div class="create-article">
+<h1> student list </h1>
+<form class="site-form" method="post" action="">
+    {% csrf_token %}
+    {% for i in obj %}
+    <h1>{{ i.name }}</h1>
+    <h4>{{ i.place }}</h4>
+    <h4>{{ i.division.name}}</h4>
+    <h4>{{ i.division.teacher.name }}</h4>
+    <h4>{{ i.divsion.teacher.name }}</h4>
+{% endfor %}
+</form>
+    </div>
+</body>
+</html>

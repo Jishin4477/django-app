@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Search student</h1>
+    <form method="GET" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-lg-5">
+                <input type="text" name="q" class="form-control" placeholder="Enter the name">
+            </div>
+            <label class="col-lg-2">
+                <button type="submit" class="btn btn-danger"> search</button>
+
+            </label>
+        </div>
+    </form>
+    <div class="container">
+    <form class="article">
+        <div class="jumbotron"><h1>Student details</h1></div>
+        {% csrf_token %}
+
+    {% for cla in results %}
+        <h1>Student id : {{cla.id}}</h1>
+        <h1>Student name : {{cla.name }}</h1>
+        <h3>Place : {{cla.place}}</h3>
+        <h3>Address : {{ cla.address }}</h3>
+        <h3>Teacher taking : {{ cla.division.teacher.name}}</h3>
+        <h3> Subject choosen : {{ cla.division.teacher.subject}}</h3>
+
+
+    {% endfor %}
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
